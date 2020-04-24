@@ -1,0 +1,7 @@
+themealdb:
+    endpoint: https://www.themealdb.com/api/json/v1
+    apikey: 1
+
+server:
+    error:
+        include-stacktrace: never

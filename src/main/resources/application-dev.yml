@@ -1,0 +1,22 @@
+themealdb:
+    endpoint: https://www.themealdb.com/api/json/v1
+    apikey: 1
+
+logging:
+    level:
+        org:
+            springframework:
+                web:
+                    reactive:
+                        function:
+                            client:
+                                ExchangeFunctions: TRACE
+        reactor:
+            netty:
+                http:
+                    client:
+                        HttpClient: DEBUG
+
+server:
+    error:
+        include-stacktrace: always
