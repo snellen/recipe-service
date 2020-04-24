@@ -13,11 +13,14 @@ import reactor.netty.tcp.TcpClient
 
 @Repository
 class TheMealDbRepository(
-        @Value("\${themealdb.endpoint}") endpoint: String,
+        @Value("\${themealdb.protocol}") protocol: String,
+        @Value("\${themealdb.host}") host: String,
+        @Value("\${themealdb.port}") port: String,
+        @Value("\${themealdb.basepath}") basepath: String,
         @Value("\${themealdb.apikey}") apiKey: String
 ) {
     private val webClient: WebClient = WebClient.builder()
-            .baseUrl("$endpoint/$apiKey/")
+            .baseUrl("$protocol://$host:$port/$basepath/$apiKey/")
             .clientConnector(ReactorClientHttpConnector(HttpClient.from(
                     TcpClient.create()
                             .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)

@@ -1,7 +1,7 @@
 themealdb:
-    protocol: https
-    host: www.themealdb.com
-    port: 443
+    protocol: http
+    host: localhost
+    port: 8090
     basepath: api/json/v1
     apikey: 1
 
@@ -19,7 +19,3 @@ logging:
                 http:
                     client:
                         HttpClient: DEBUG
-
-server:
-    error:
-        include-stacktrace: always

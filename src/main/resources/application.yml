@@ -1,5 +1,8 @@
 themealdb:
-    endpoint: https://www.themealdb.com/api/json/v1
+    protocol: https
+    host: www.themealdb.com
+    port: 443
+    basepath: api/json/v1
     apikey: 1
 
 server:
