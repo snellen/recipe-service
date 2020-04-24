@@ -32,4 +32,17 @@ class TheMealDbRepository(
                 .bodyToMono(MealListDTO::class.java)
                 .map { it.meals.first() }
     }
+
+    fun getRecipeV1(id: String): Mono<MealDTO> {
+        return webClient
+                .get()
+                .uri() {
+                    it.path("lookup.php")
+                            .queryParam("i", id)
+                            .build()
+                }
+                .retrieve()
+                .bodyToMono(MealListDTO::class.java)
+                .map { it.meals.first() }
+    }
 }

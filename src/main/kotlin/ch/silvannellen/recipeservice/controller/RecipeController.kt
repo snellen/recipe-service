@@ -17,7 +17,7 @@ class RecipeController(
 
     @GetMapping("recipe/{id}")
     fun getRecipe(@PathVariable @NotBlank id: String): Mono<RecipeDTO> {
-        return recipeService.getRandomRecipe().map { recipeToDTOMapper.map(it) }
+        return recipeService.getRecipe(id).map { recipeToDTOMapper.map(it) }
     }
 
     @GetMapping("recipe/random")
