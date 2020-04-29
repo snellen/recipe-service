@@ -39,6 +39,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+    testImplementation(group = "com.github.tomakehurst", name= "wiremock", version = "2.26.3")
 }
 
 tasks.withType<Test> {
