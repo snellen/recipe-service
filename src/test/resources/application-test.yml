@@ -3,7 +3,7 @@ themealdb:
     host: localhost
     port: 8090
     basepath: api/json/v1
-    apikey: 1
+    apikey: 123
 
 logging:
     level:
