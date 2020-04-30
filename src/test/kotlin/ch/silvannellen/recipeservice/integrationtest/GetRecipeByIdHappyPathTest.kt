@@ -17,7 +17,7 @@ import org.springframework.test.web.reactive.server.WebTestClient
 @ActiveProfiles("test")
 @AutoConfigureWebTestClient
 @ContextConfiguration(initializers = [WireMockContextInitializer::class])
-class GetRandomRecipeHappyPathTest {
+class GetRecipeByIdHappyPathTest {
 
     @Autowired
     private lateinit var theMealDbApi: TheMealDbApi
@@ -31,14 +31,15 @@ class GetRandomRecipeHappyPathTest {
     }
 
     @Test
-    fun givenGetRandomRecipe_validResponseIsReturned() {
+    fun givenGetRecipeById_validResponseIsReturned() {
         // Given
-        theMealDbApi.mockRandomRecipeV1("random-recipe-1")
+        val id = "tmd12345678"
+        theMealDbApi.mockRecipeV1(id, "random-recipe-1")
 
         // When
         val response = webClient
                 .get()
-                .uri("recipe/random")
+                .uri("recipe/$id")
                 .exchange()
 
         // Then
